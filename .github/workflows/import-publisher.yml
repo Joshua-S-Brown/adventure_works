@@ -24,13 +24,13 @@ jobs:
         lfs: true
 
     - name: 'create-environment'
-    - uses: microsoft/powerplatform-actions/create-environment@0.4.0
-    with:
-      app-id: ${{env.CLIENT_ID}}
-      client-secret: ${{ secrets.PowerPlatformSPN }}
-      tenant-id: ${{env.TENANT_ID}}
-      name: ${{env.ENVIRONMENT_NAME}}
-      region: 'unitedstates'
-      type: 'Sandbox'
-      currency: 'USD'
-      language: 'English'
+      uses: microsoft/powerplatform-actions/create-environment@0.4.0
+      with:
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+        name: ${{env.ENVIRONMENT_NAME}}
+        region: 'unitedstates'
+        type: 'Sandbox'
+        currency: 'USD'
+        language: 'English'
