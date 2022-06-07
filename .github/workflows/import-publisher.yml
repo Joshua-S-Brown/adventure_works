@@ -11,6 +11,7 @@ env:
   TENANT_ID: '1557f771-4c8e-4dbd-8b80-dd00a88e833e'
   ENVIRONMENT_NAME: 'Josh Brown- GitHub Action Test'
   USER_NAME: 'brownjoshua@pfecrmonline.onmicrosoft.com'
+  SPN: ${{ secrets.POWERPLATFORMSPN }}
   PASSWORD: ${{ secrets.PASSWORD }}
 
 jobs:
@@ -28,6 +29,9 @@ jobs:
     - name: 'create-environment'
       uses: microsoft/powerplatform-actions/create-environment@0.4.0
       with:
-        user-name: ${{env.USER_NAME}}
-        password-secret: ${{env.PASSWORD}}
+        # user-name: ${{env.USER_NAME}}
+        # password-secret: ${{env.PASSWORD}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ env.SPN }}
+        tenant-id: ${{env.TENANT_ID}}
         name: ${{env.ENVIRONMENT_NAME}}
