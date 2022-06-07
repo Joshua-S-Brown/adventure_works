@@ -1,0 +1,35 @@
+name: import-publisher
+
+# Export publisher solution to new environment
+
+on:
+  workflow_dispatch:
+
+env:
+#edit your values here
+  CLIENT_ID: '24c10195-f318-492e-afd6-0071aa34a069'
+  TENANT_ID: '1557f771-4c8e-4dbd-8b80-dd00a88e833e'
+  ENVIRONMENT_NAME: 'Josh Brown- GitHub Action Test'
+
+jobs:
+  create-new-environment:
+    runs-on: windows-latest
+    # or you can say runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+
+    - name: 'create-environment'
+    with:
+      app-id: ${{env.CLIENT_ID}}
+      client-secret: ${{ secrets.PowerPlatformSPN }}
+      tenant-id: ${{env.TENANT_ID}}
+      name: ${{env.ENVIRONMENT_NAME}}
+      region: 'unitedstates'
+      type: 'Sandbox'
+      currency: 'USD'
+      language: 'English'
