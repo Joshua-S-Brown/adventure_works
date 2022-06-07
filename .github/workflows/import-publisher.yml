@@ -30,7 +30,3 @@ jobs:
         client-secret: ${{ secrets.PowerPlatformSPN }}
         tenant-id: ${{env.TENANT_ID}}
         name: ${{env.ENVIRONMENT_NAME}}
-        region: 'unitedstates'
-        type: 'Sandbox'
-        currency: 'USD'
-        language: 'English'
